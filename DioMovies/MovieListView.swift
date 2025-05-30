@@ -17,12 +17,28 @@ struct MovieListView: View {
                     ProgressView("Carregando filmes...")
                 } else {
                     List(viewModel.movies) { movie in
-                        VStack(alignment: .leading) {
-                            Text(movie.title)
-                                .font(.headline)
-                            Text("⭐️ \(movie.rating, specifier: "%.1f")")
-                                .font(.subheadline)
+                        HStack(alignment: .top) {
+                            AsyncImage(url: URL(string: movie.posterUrl)) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: 200, height: 120)
+                            .cornerRadius(8)
+                            .clipped()
+
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(movie.title)
+                                    .font(.headline)
+                                Text("Ano: \(movie.releaseYear)")
+                                    .font(.subheadline)
+                                Text("⭐️ \(movie.rating, specifier: "%.1f")")
+                                    .font(.subheadline)
+                            }
                         }
+                        .padding(.vertical, 5)
                     }
                 }
             }
