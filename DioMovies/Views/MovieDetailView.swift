@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct MovieDetailView: View {
     let movie: Movie
@@ -36,6 +37,18 @@ struct MovieDetailView: View {
                     }
                     .foregroundColor(.gray)
                     .font(.subheadline)
+                    
+                    Spacer()
+                    
+                    Text("Trailer:")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    
+                    if let trailerURL = URL(string: movie.trailerUrl) {
+                        WebView(url: trailerURL)
+                            .frame(height: 200)
+                            .cornerRadius(10)
+                    }
                 }
                 .padding()
             }
@@ -46,6 +59,19 @@ struct MovieDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
+}
+
+
+struct WebView: UIViewRepresentable {
+    let url: URL
+    
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+    
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        webView.load(URLRequest(url: url))
+    }
 }
 
 #Preview {
