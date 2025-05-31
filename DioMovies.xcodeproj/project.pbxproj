@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		16DC9F532DEB39E500A4E61F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 16DC9F522DEB39E500A4E61F /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		16B956292DEA169B00114B94 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		16B9561B2DEA169A00114B94 /* DioMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DioMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B956282DEA169B00114B94 /* DioMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DioMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B956322DEA169B00114B94 /* DioMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DioMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16DC9F522DEB39E500A4E61F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		16B956122DEA169A00114B94 = {
 			isa = PBXGroup;
 			children = (
+				16DC9F522DEB39E500A4E61F /* README.md */,
 				16B9561D2DEA169A00114B94 /* DioMovies */,
 				16B9562B2DEA169B00114B94 /* DioMoviesTests */,
 				16B956352DEA169B00114B94 /* DioMoviesUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16DC9F532DEB39E500A4E61F /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
