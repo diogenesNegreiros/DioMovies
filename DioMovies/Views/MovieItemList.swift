@@ -39,5 +39,8 @@ struct MovieItemList: View {
 }
 
 #Preview {
-    MovieItemList(mov: MockUtil.movie)
+    ZStack {
+        Color.black.ignoresSafeArea()
+        MovieItemList(mov: MockUtil.movie)
+    }
 }

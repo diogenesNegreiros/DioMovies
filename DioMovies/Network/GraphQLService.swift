@@ -4,10 +4,11 @@
 //
 //  Created by Diogenes de Souza Negreiros on 30/05/25.
 // Mock do serviço
+// Auxilio de IA para simular comportamento de uma API real.
 
 import Foundation
 
-class GraphQLService {
+class GraphQLService: MovieServiceProtocol {
     static let shared = GraphQLService()
 
     func fetchMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {

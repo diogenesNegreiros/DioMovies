@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol MovieServiceProtocol {
+    func fetchMovies(completion: @escaping (Result<[Movie], Error>) -> Void)
+}
+
 class MockUtil {
     private init() {}
     
@@ -23,4 +27,17 @@ class MockUtil {
         )
     }
     
+}
+
+class MockMovieService: MovieServiceProtocol {
+    var shouldReturnError = false
+    var moviesToReturn: [Movie] = []
+
+    func fetchMovies(completion: @escaping (Result<[Movie], Error>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(NSError(domain: "TestError", code: 1, userInfo: nil)))
+        } else {
+            completion(.success(moviesToReturn))
+        }
+    }
 }
