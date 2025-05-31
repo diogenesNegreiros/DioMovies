@@ -1,4 +1,4 @@
-# MovieAppSwiftUI (GraphQL manual)
+# Movies Now (App de lista de filmes)
 
 Este projeto SwiftUI consome uma API GraphQL mocado, sem dependências externas de servidor local.
 
