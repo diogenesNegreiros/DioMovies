@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieListView: View {
     @StateObject var viewModel = MovieListViewModel()
     @State private var hasAppeared = false
+    @State private var showError = false
     
     var body: some View {
         NavigationView {
@@ -46,11 +47,23 @@ struct MovieListView: View {
                     hasAppeared = true
                 }
             }
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    init() {
+             .onReceive(viewModel.$errorMessage) { error in
+                 showError = error != nil
+             }
+             .alert(isPresented: $showError) {
+                 Alert(
+                     title: Text("Erro"),
+                     message: Text(viewModel.errorMessage ?? "Erro desconhecido"),
+                     dismissButton: .default(Text("OK")) {
+                         viewModel.errorMessage = nil
+                     }
+                 )
+             }
+         }
+         .navigationViewStyle(StackNavigationViewStyle())
+     }
+
+     init() {
         self.setupNavigationBar()
     }
     
