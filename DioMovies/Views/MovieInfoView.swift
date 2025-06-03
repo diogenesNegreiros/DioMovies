@@ -27,9 +27,9 @@ struct MovieInfoView: View {
                 .foregroundColor(.white)
             
             HStack {
-                Text("Ano: \(mov.releaseYear)")
-                Text("Duração: \(mov.durationMinutes) min")
-                Text("⭐️ \(mov.rating, specifier: "%.1f")/10")
+                Text(localized("movie_year", mov.releaseYear))
+                Text(localized("movie_duration", mov.durationMinutes))
+                Text(localized("movie_rating", mov.rating))
             }
             .foregroundColor(.gray)
             .font(.subheadline).background(Color.black)

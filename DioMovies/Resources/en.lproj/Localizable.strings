@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  DioMovies
+
+  Created by Diogenes de Souza Negreiros on 03/06/25.
+  
+*/
+
+"loading_movies" = "Carregando filmes...";
+"trailer_title" = "Trailer";
+"back_button" = "Voltar";
+"favorite_button" = "Favorito";
+"watch_on_youtube" = "Assistir no YouTube";
+"movie_year" = "Ano: %d";
+"movie_duration" = "Duração: %d min";
+"movie_rating" = "⭐ %.1f/10";
+"movie_details" = "Detalhes";
+"movie_title_label" = "🎬 Filmes";
+"movie_error" = "Error";
+"movie_error_msg" = "Erro desconhecido";

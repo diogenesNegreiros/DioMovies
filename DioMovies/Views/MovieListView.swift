@@ -18,7 +18,7 @@ struct MovieListView: View {
                 Color.black.ignoresSafeArea()
                 
                 if viewModel.isLoading {
-                    ProgressView("Carregando filmes...")
+                    ProgressView("loading_movies")
                         .foregroundColor(.white)
                 } else {
                     List(viewModel.movies) { movie in
@@ -30,7 +30,7 @@ struct MovieListView: View {
                     .listStyle(.plain)
                 }
             }
-            .navigationTitle("🎬 Filmes")
+            .navigationTitle("movie_title_label")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -52,8 +52,8 @@ struct MovieListView: View {
              }
              .alert(isPresented: $showError) {
                  Alert(
-                     title: Text("Erro"),
-                     message: Text(viewModel.errorMessage ?? "Erro desconhecido"),
+                     title: Text("movie_error"),
+                     message: Text(viewModel.errorMessage ?? "movie_error_msg"),
                      dismissButton: .default(Text("OK")) {
                          viewModel.errorMessage = nil
                      }

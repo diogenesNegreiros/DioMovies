@@ -26,10 +26,10 @@ struct MovieItemList: View {
                 Text(mov.title)
                     .font(.headline)
                     .foregroundColor(.white)
-                Text("Ano: \(mov.releaseYear)")
+                Text(localized("movie_year", mov.releaseYear))
                     .font(.subheadline)
                     .foregroundColor(.gray)
-                Text("⭐️ \(mov.rating, specifier: "%.1f")")
+                Text(localized("movie_rating", mov.rating))
                     .font(.subheadline)
                     .foregroundColor(.yellow)
             }

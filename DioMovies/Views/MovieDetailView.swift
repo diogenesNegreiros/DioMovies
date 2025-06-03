@@ -20,7 +20,7 @@ struct MovieDetailView: View {
         }
         .background(Color.black.ignoresSafeArea())
         .foregroundColor(.white)
-        .navigationTitle("Detalhes")
+        .navigationTitle(movie.title)
         .navigationBarTitleDisplayMode(.inline)
     }
     
