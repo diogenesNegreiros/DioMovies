@@ -11,7 +11,8 @@ import SwiftUI
 struct DioMoviesApp: App {
     var body: some Scene {
         WindowGroup {
-            MovieListView()
+            //MovieListView()
+            SplashView()
         }
     }
 }
