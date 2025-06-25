@@ -10,33 +10,49 @@ import SwiftUI
 struct SplashView: View {
 
     public init() { }
+    
     @State private var isGlitching = false
+    @State private var shouldNavigate = false
     @Environment(\.colorScheme) private var colorScheme
     
     public var body: some View {
-        VStack {
-            GlitchEffectView(
-                content: Image(systemName: "movieclapper")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(colorScheme == .dark ? .white : .black),
-                isGlitching: $isGlitching,
-                colorScheme: colorScheme
-            )
-            .frame(width: 300, height: 300)
-            
-            GlitchEffectView(
-                content: Text("app_name")
-                    .font(.system(size: 50, weight: .heavy))
-                    .foregroundColor(colorScheme == .dark ? .white : .black),
-                isGlitching: $isGlitching,
-                colorScheme: colorScheme
-            )
-            .padding(.top, 20)
-            
-        }
-        .onAppear {
-            isGlitching.toggle()
+        NavigationView {
+            VStack {
+                GlitchEffectView(
+                    content: Image(systemName: "movieclapper")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(colorScheme == .dark ? .white : .black),
+                    isGlitching: $isGlitching,
+                    colorScheme: colorScheme
+                )
+                .frame(width: 300, height: 300)
+                
+                GlitchEffectView(
+                    content: Text("app_name")
+                        .font(.system(size: 50, weight: .heavy))
+                        .foregroundColor(colorScheme == .dark ? .white : .black),
+                    isGlitching: $isGlitching,
+                    colorScheme: colorScheme
+                )
+                .padding(.top, 20)
+                
+                NavigationLink(
+                    destination: MovieListView(),
+                    isActive: $shouldNavigate,
+                    label: {
+                        EmptyView()
+                    }
+                )
+                .hidden()
+                
+            }
+            .onAppear {
+                isGlitching.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    shouldNavigate = true
+                }
+            }
         }
     }
 }
